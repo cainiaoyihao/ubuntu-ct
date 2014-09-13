@@ -591,3 +591,5 @@ modprobe psmouse proto=imps即可。
 ｇｅｄｉｔ显示中文乱码，方法是在
 gsettings set org.gnome.gedit.preferences.encodings auto-detected "['GB18030', 'UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']" 
 Sun 07 Sep 2014 09:12:45 PM CST 
+ 
+Sat Sep 13 19:44:08 CST 2014
