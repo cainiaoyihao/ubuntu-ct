@@ -593,4 +593,3 @@ gsettings set org.gnome.gedit.preferences.encodings auto-detected "['GB18030', '
 Sun 07 Sep 2014 09:12:45 PM CST 
  
 Sat Sep 13 19:44:08 CST 2014
-使用gimp來對圖片添加字體,之後要選擇export來輸出圖片格式.
