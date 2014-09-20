@@ -599,3 +599,14 @@ Sun Sep 14 14:46:12 CST 2014
 linux 下循環左移函數,數據結構.
 Sun 14 Sep 2014 10:39:03 PM CST 
 如何對lcd操作移動.
+
+
+ubuntu下建立的wifi热点ADHOC方式的.android系统不支持ADHOC方式的热点,所以需要改变建立方式.
+有两种方法:1.kde-nm-connection-editor使用其修改为access-point.
+2.使用ap-hotspot来创建WIFI热点
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install ap-hotspot
+sudo ap-hotspot configure
+sudo ap-hotspot start
+Sat 20 Sep 2014 05:49:43 PM CST 
