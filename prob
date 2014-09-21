@@ -643,3 +643,8 @@ ubuntu 下创建热点是adhoc 方式的.andoraid 是不识别的.
  sudo ap-hotspot configure  //这一步会检查ubuntu的网络和WIFI接口，确定后会提示你配置热点，输入ssid和密码之类的就行了
  sudo ap-hotspot start
 Sat 20 Sep 2014 05:57:02 PM CST 
+看了下红外的代码,知道了红外传送的格式.尤其需要注意的数据是先低位后高位.
+在LCD上显示时,要将对应的按键编码转换成ascii码.数字0-9对应ascii30-39.
+而A-F对应的是41-46.在程序中使用中断来响应红外.还不清楚在linux下如何使用中断,
+以及中断的使用方式和具体作用.
+Sun Sep 21 22:30:26 CST 2014
