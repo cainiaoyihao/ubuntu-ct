@@ -1,0 +1,226 @@
+#include <bits/termios.h>
+查看
+
+
+
+Canonical ( standard ) versus Non-Canonical Modes
+By default, terminal input is not made available to a program until
+the user presses Enter or Return. In most cases, this is a benefit because it allows the user to correct typing
+mistakes using Backspace or Delete. Only when they’re happy with what they see on the screen do they
+press Enter to make the input available to the program.
+All the input is processed in terms of lines. Until a
+line of input is complete (usually when the user presses Enter), the terminal interface manages all the
+key presses, including Backspace, and no characters may be read by the application.
+
+規範模式
+	規則模式,也被稱爲cooked模式.驅動程序輸入的字符保存在緩衝區,並且僅在收到回車鍵時才將
+緩衝餓字符發到程序.緩衝數據使驅動程序可以實現最基本的編輯功能,如刪除字符,單詞或整行.當用戶分別按下刪除鍵,單詞刪除鍵或是終止鍵時,這些功能會被調用.
+
+非規範模式
+	當緩衝和編輯功能被關閉時,連接處於飛規範模式.用於刪除,單詞刪除和終止的編輯鍵沒有特殊的意義.
+
+stty -icanon 關閉規範模式
+stty -icanon -echo 關閉規範模式和回顯
+
+
+
+The values that can be manipulated to affect the terminal are grouped into various modes:
+❑ Input
+❑ Output
+❑ Control
+❑ Local
+❑ Special control characters
+
+
+Canonical
+
+
+A minimum termios structure is typically declared as follows (although the X/Open specification
+allows additional fields to be included):
+#include <termios.h>
+struct termios {
+	tcflag_t c_iflag;
+	tcflag_t c_oflag;
+	tcflag_t c_cflag;
+	tcflag_t c_lflag;
+	cc_t     c_cc[NCCS];
+};
+The member names correspond with the five parameter types in the previous list.
+
+You can initialize a termios structure for the terminal by calling the function tcgetattr , which has the
+following prototype:
+
+
+
+#include <termios.h>
+int tcgetattr(int fd, struct termios *termios_p);
+参数fd为终端的文件描述符，返回的结果保存在termios 结构体中 tcgetattr(fileno(stdin), &initialrsettings);
+成功返回零；失败返回非零，发生失败接口将设置errno错误标识。
+
+This call writes the current values of the terminal interface variables into the structure pointed to
+by termios_p . If these values are then altered, you can reconfigure the terminal interface with the
+tcsetattr function as follows:
+#include <termios.h>
+int tcsetattr(int fd, int actions, const struct termios *termios_p);
+The actions field for tcsetattr controls how any changes are applied. The three possibilities are
+❑ TCSANOW : Changes values immediately.
+❑ TCSADRAIN : Changes values when current output is complete.
+❑ TCSAFLUSH : Changes values when current output is complete, but discards any input currently
+
+tcsetattr
+说明:tcsetattr函数用于设置终端参数。函数在成功的时候返回0，失败的时候返回-1，并设置errno的值。参数fd为打开的终端文件描述符，
+	参数optional_actions用于控制修改起作用的时间，而结构体termios_p中保存了要修改的参数。optional_actions可以取如下的值。
+	TCSANOW：不等数据传输完毕就立即改变属性。
+	TCSADRAIN：等待所有数据传输结束才改变属性。
+	TCSAFLUSH：清空输入输出缓冲区才改变属性。
+
+
+ge, using the construct X &= ~FLAG (which clears the bit defined by FLAG in the variable X ).
+If needed, you could use X |= FLAG to set a single bit defined by
+FLAG , although this wasn’t necessary in the preceding example.
+
+
+Note that it’s very important for programs to restore terminal settings to the values they had before the
+program started. It’s always the responsibility of a program to initially save and then restore these set-
+tings when it finishes.
+We’ll now look more closely at the modes and related function calls. Some of the detail of the modes is
+rather specialized and rarely used, so we cover only the main features here. If you need to know more,
+you should consult your local man pages or a copy of the POSIX or X/Open specification.
+The most important mode to take in on your first read is the local mode. The canonical and non-canonical
+modes are the solution to the second of the problems in the first application — the user must press Enter
+or Return for the program to read the in
+
+Input Modes
+The input modes control how input (characters received by the terminal driver at a serial port or key-
+board) is processed before being passed on to the program. You control them by setting flags in the
+c_iflag member of the termios structure. All the flags are defined as macros and can be combined
+with a bitwise OR. This is the case for all the terminal modes.
+The macros that can be used for c_iflag are
+❑ BRKINT : Generate an interrupt when a break condition (loss of connection) is detected on the line
+❑ IGNBRK : Ignore break conditions on the line
+❑ ICRNL : Convert a received carriage return to a newline
+❑ IGNCR : Ignore received carriage returns
+❑ INLCR : Convert received newlines to carriage returns
+❑ IGNPAR : Ignore characters with parity errors
+❑ INPCK : Perform parity checking on received characters
+❑ PARMRK : Mark parity errors
+❑ ISTRIP : Strip (set to seven bits) all incoming characters
+❑ IXOFF : Enable software flow control on input
+❑ IXON : Enable software flow control on output
+If neither BRKINT nor IGNBRK is set, a break condition on the line is read as a NULL (0x00) character.
+You won’t need to change the input modes very often, because the default values are usually the most
+suitable, so we won’t discuss them further here.
+
+Output Modes
+These modes control how output characters are processed; that is, how characters sent from a program
+are processed before being transmitted to the serial port or screen. As you might expect, many of these are
+counterparts of the input modes. Several additional flags exist, which are mainly concerned with allowing
+for slow terminals that require time to process characters such as carriage returns. Almost all of these are
+either redundant (as terminals get faster) or better handled using the terminfo database of terminal capa-
+bilities, which you use later in this chapter.
+You control output modes by setting flags in the c_oflag member of the termios structure. The macros
+that you can use in c_oflag are
+❑ OPOST : Turn on output processing
+❑ ONLCR : Convert any output newline to a carriage return/line feed pair
+❑ OCRNL : Convert any output carriage return to a newline
+❑ ONOCR : No carriage return output in column 0
+❑ ONLRET : A newline also does a carriage return
+❑ OFILL : Send fill characters to provide delays
+❑ OFDEL : Use DEL as a fill character, rather than NULL
+❑ NLDLY : Newline delay selection
+❑ CRDLY : Carriage return delay selection
+❑ TABDLY : Tab delay selection
+❑ BSDLY : Backspace delay selection
+❑ VTDLY : Vertical tab delay selection
+❑ FFDLY : Form feed delay selection
+If OPOST is not set, all the other flags are ignored.
+The output modes are also not commonly used, so we won’t consider them further here.
+
+Control Modes
+These modes control the hardware characteristics of the terminal. You specify control modes by setting
+flags in the c_cflag member of the termios structure, which has the following macros:
+❑ CLOCAL : Ignore any modem status lines.
+❑ CREAD : Enable the receipt of characters.
+❑ CS5 : Use five bits in sent or received characters.
+❑ CS6 : Use six bits in sent or received characters.
+❑ CS7 : Use seven bits in sent or received characters.
+❑ CS8 : Use eight bits in sent or received characters.
+❑ CSTOPB : Use two stop bits per character, rather than one.
+❑ HUPCL : Hang up modem on close.
+❑ PARENB : Enable parity generation and detection.
+❑ PARODD : Use odd parity rather than even parity.
+The control modes are used mainly when the serial line is connected to a modem, although they may be
+used when talking to a terminal. Normally, it’s easier to change your terminal’s configuration than to
+change the default line behavior by using the control modes of termios .
+
+
+Local Modes
+These modes control various characteristics of the terminal. You specify local modes by setting flags in
+the c_lflag member of the termios structure, with the following macros:
+❑ ECHO : Enable local echoing of input characters
+❑ ECHOE : Perform a Backspace, Space, Backspace combination on receiving ERASE
+❑ ECHOK : Perform erase line on the KILL character
+❑ ECHONL : Echo newline characters
+❑ ICANON : Enable canonical input processing (see the text following this list)
+❑ IEXTEN : Enable implementation-specific functions
+❑ ISIG : Enable signals
+❑ NOFLSH : Disable flush on queue
+❑ TOSTOP : Send background processes a signal on write attempts
+The two most important flags here are ECHO , which allows you to suppress the echoing of typed charac-
+ters, and ICANON , which switches the terminal between two very distinct modes of processing received
+characters. If the ICANON flag is set, the line is said to be in canonical mode; if not, the line is in non-
+canonical mode.
+
+Special Control Characters
+Special control characters are a collection of characters, like Ctrl+C, acted upon in particular ways when
+the user types them. The c_cc array member of the termios structure contains the characters mapped
+to each of the supported functions. The position of each character (its index into the array) is defined by
+a macro, but there’s no limitation that they must be control characters.
+The c_cc array is used in two very different ways, depending on whether the terminal is set to canonical
+mode (that is, the setting of the ICANON flag in the c_lflag member of termios ).
+It’s important to realize that there is some overlap in the way the array index values are used for the two
+different modes. Because of this, you should never mix values from these two modes.
+
+For canonical mode, the array indices are
+❑ VEOF : EOF character
+❑ VEOL : EOL character
+❑ VERASE : ERASE character
+❑ VINTR : INTR character
+❑ VKILL : KILL character
+❑ VQUIT : QUIT character
+❑ VSUSP : SUSP character
+❑ VSTART : START character
+❑ VSTOP : STOP character
+
+For non-canonical mode, the array indices are
+❑ VINTR : INTR character
+❑ VMIN : MIN value
+❑ VQUIT : QUIT character
+❑ VSUSP : SUSP character
+❑ VTIME : TIME value
+❑ VSTART : START character
+❑ VSTOP : STOP character	
+
+
+
+
+
+bourne shell中的stty和控制字符
+可以用控制字符（Ctrl/Control系列组合键）执行一些特殊功能，例如停止和开始屏幕输出，删除整个命令行，或停止执行一个命令。 当然这些控制字符可以用stty命令进行重定义。
+控制字符                     关键字                  目的
+Control +c                     intr                          中止当前运行的命令
+Control +d                     eof                         删除当前字符，指到文件的结尾，或者退出终端
+Control +u                     kill                           删除光标左边（不含光标）所有的字符
+Control +w                     werase                     删除命令行的最后一个单词
+Control +s                     stop                        中止屏幕输出
+Control +q                     start                        恢复屏幕输出，解除Control +s的操作
+Control +a                                                 光标跳到当前行头（bash）
+Control +e                                                 光标跳到当前行尾（bash）
+Control +k                                                 删除光标右边（含光标）所有的字符（bash）
+Control +z                                                 暂停当前命令，准备用bg转到后台继续执行（bash）
+在bourne shell的stty指令中，erase/werase/kill 分别表示：删除一个字符（delete）/最后一个单词（Ctrl-w）/当前行（Ctrl-u）,最常用的自定义如下：
+l         stty erase ^H        -------erase表示删除一个字符,^H表示敲下Backspace键,默认用Delete键
+l         stty werase ^?      -------wereae表示删除最后一个单词,^? 表示敲下Delete键
+l         stty kill ^[              -------kill表示删除当前行,^[表示敲下Esc键，默认用Ctrl-u
+l         stty ek                 -------把erase和kill恢复成默认值（Delete和Ctrl-u）
+l         stty -echo            -------关闭命令的回显，即键入的任何字符均不在屏幕显示

@@ -1,0 +1,36 @@
+//#include<signal.h>
+signal
+头文件:#include<signal.h>
+函数:　　void            (    *signal(int signum,    void  (*handler)(int)   )(int);
+//signal(int signum,    void  (*handler)(int) )  signal是一个函数,括号的优先级高于*,
+//把signal(int signum,    void  (*handler)(int) )其看成一个整体为fu,则
+//void (*fu)(int),则fu是一个函数指针,,他是通过signal函数返回的,他指向的函数返回值为void且接受一个int型的参数.
+//注意指针函数和函数指针的区别
+//signal是一个指针函数吗?signal是如何定义的.signal函数的返回值是一个函数指针,
+//为什么要这样定义?是为了查看方便吗?
+
+//signal(SIGINT,f);
+//void f(int signum)
+//{
+//	printf("ouch!\n");
+//}
+
+函数说明:signal()会依参数signum指定的信号编号来设置该信号的处理函数.
+	当指定的信号到达时就会跳到参数handler指定的函数执行.
+	如果参数handler不是函数指针,则必须是下列两个常数之一:
+	SIG_IGN  忽略参数 signum指定的信号
+	SIG_DFL  将参数signum指定的信号重设为核心预设的信号处理方式.
+返回值:返回先前的信号处理函数指针,如果有错误则返回SIG_ERR - 1.
+	
+//void (*func)(int)：
+//void function(int a)
+//{
+//  a = 5;
+//}
+//void (*pfunc)(int); 
+//(float *fp 表明*fp是一个浮点数,也就是fp是一个浮点数的指针.)
+//pfunc是一个函数指针，所指向函数的返回类型为空，它所指向的函数(另外的函数,不是pfunc自己了)接收一个int型的参数。
+//若是写成void *func(int)则变成了:func是一个函数，它的返回类型是空指针，它接受一个int型参数。
+
+
+
