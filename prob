@@ -676,3 +676,35 @@ Thu Oct 16 11:30:03 CST 2014
 以下需要学习下linux 的I/O函数,
 今天学习了fread参考test的frea.c和elic.c例程.不知道一个指针s是否会随着移动发生改变.还有错,
 需要修改.
+
+
+学习了matlab 的gui 编程,只是单个gui
+主要的内容是子函数间参数的传递,如果是handle中已有的参数,直接使用get set即可.如果是
+新的,则使用setappdata和getappdata来创建添加到handle中去,已方便实现其他子函数调用.
+在callback函数中尽量不要实现与多个输入变量变化的函数,而把函数单独实现,其后在相关子函数中调用即可.参看
+/home/leon/Matlab/figure_test.m
+Sat Nov 22 22:58:52 CST 2014 
+
+
+安装kali linux 之后,ubuntu的启动顺序无法在ubuntu的系统下更改,之后在kali更改之后才能体现在grub的启动顺序上.
+ubuntu 下grub-customizer无法更改.ubuntu更新了很多次的kernal,可以删除这些老的kernal.
+使用命令 dpkg --list | grep linux-image 参看所有的kernal
+uname -r 查看当前的kernal版本,这个不能删除
+删除 sudo apt-get purge  linux-image-3.13.0-40-generic  可以使用regex
+
+由于Linux默认的history记录仅保存了命令的内容，没有具体的时间，我只能通过查出用户的登录与退出的时间，来给他们一个时间范围。
+因此，我们非常有必要对history历史命令的记录功能进行优化，我推荐的参数如下：
+编辑/etc/bashrc，添加以下配置信息：
+   	# 设置保存历史命令的文件大小
+  	export HISTFILESIZE=1000000000
+  	# 保存历史命令条数
+  	export HISTSIZE=1000000
+  	# 实时记录历史命令，默认只有在用户退出之后才会统一记录，很容易造成多个用户间的相互覆盖。
+  	export PROMPT_COMMAND="history -a"
+  	# 记录每条历史命令的执行时间
+  	export HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S "
+使更改立即生效：
+# source /etc/bashrc
+查看历史命令记录：
+# history
+
