@@ -719,3 +719,15 @@ uname -r 查看当前的kernal版本,这个不能删除
 首先是要對網絡的結構有一個清楚的認識,各層之間的連接,其次是每層數據的格式分析.
 要注意不同抓包文件的文件頭格式差異.pcap和pcapng的差異.
 數據鏈路層
+
+Tue 21 Jul 2015 11:38:35 AM CST 
+
+
+goagent安装托盘
+sudo apt-get install python-dev python-appindicator python-vte
+火狐浏览器证书需要导入证书：在 授权中心 导入 GoAgent/local 目录下的 CA.crt 证书 导入到authorities中
+	不要导入到server中去，无用。
+开始更新是需要安装证书到目录下，需要管理员权限，也就是说需要sudo一下。
+
+
+
