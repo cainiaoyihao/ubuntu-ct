@@ -1,0 +1,112 @@
+今天睡到中午1点起来，晚上8睡到10点半，不知道为什么现在自己怎么这么困。作息没搞好。
+开始学习图像处理，C语言，以及计算机编程和算法。
+2013-09-24 02:24:37 
+
+
+学习了指针，没有看图像处理，明天上课，依旧。
+算法？继续。
+2013-09-26 01:37:30
+
+开始了新一天的学习。
+Wed Oct  9 00:25:42 CST 2013
+继续数组，指针，vi的操作和熟练
+
+学习linux的系统优化>
+Sat Oct 12 02:44:52 CST 2013
+
+学习了矩阵的张量积和微分，发现其对于许多方面十分有用。
+
+Thu Nov  7 23:15:04 CST 2013
+今天学了c与指针这本书，学会了指针数组和数组指针，多维数组，接下来看关于字符串和内存的分配的内容。
+
+Sat Nov  9 22:31:23 CST 2013
+
+
+搞了一晚上的安装gtk，一直安装不成功。一直在找软件安装错误的地方。自己根本就没看安装提示，才会搞成这样。Then build and install the GTK+ libraries in the order: GLib, Pango, ATK, then GTK+. For each library, follow the steps of configure, make, make install mentioned above. First make sure that you have the necessary external dependencies installed: pkg-config, GNU make, the JPEG, PNG, and TIFF libraries, FreeType, and, if necessary, libiconv and libintl. To get detailed information about building these packages, see the documentation provided with the individual packages. On a Linux system, it's quite likely you'll have all of these installed already except for pkg-config.结果最后搜索gtk的安装才发现是自己把软件包之间的相互依赖关系给搞错了。
+其实还有更加简洁的方法，只是自己不知道把了。教训！！！
+
+Thu Nov 14 02:58:26 CST 2013
+学习了结构体的存储与访问，下面是內存的分配。
+
+Mon Nov 18 01:03:07 CST 2013
+看完了内存分配，需要做些练
+指针那本书，看到预处理后面有些模糊，需要再看。
+
+Sun Nov 24 04:29:56 CST 2013
+
+看到了双向链表，以后还没看。数据结构这一章有难度。:
+
+Sun Dec  1 03:06:13 CST 2013
+
+
+今天重新看了编程实践教程，发现这本书原来就不是介绍linux基本命令，或是如何去查命令的的书。而是一本地道的教你如何使用linux中的档案去构造和编写程序。实在是认识的太晚了。
+
+Wed Dec 11 22:15:23 CST 2013
+
+内核缓存技术还没看懂，以后在补把。还有就是第二章学习的几个文件基本操作还不是很清楚和详细。只有以后再说了。
+
+今天没看ls2.c，先把下面的看完再回过头看。
+HAIYOU SETUID
+Sun Dec 15 04:43:09 CST 2013
+看到了编写pwd。
+
+
+play_again 的阻塞部分没有看。最后的处理部分没有看。
+
+Mon Dec 30 00:54:33 CST 2013
+
+搞了一晚上，想搞一个mail，结果却是一无所成。在youtube上找了好久的阿三讲话。还是关于服务器的dns，端口，smtp等不知道。导致的。
+安装的realplayer真是个垃圾。可能是系统不支持把。
+Fri Jan 10 01:47:16 CST 2014
+重新建了一个新的ubuntu one帐号，1262871536@qq.com。有了5G的上传空间。
+
+搞了一晚上的ape转换，对于其中的一些脚本还需要理解。以及如何从新的源更新下载软件。脚本会添加到鼠标右键。
+Mon Mar 24 21:20:28 CST 2014
+
+
+
+需要给小外甥找几本书看。关于孩子教育的。
+
+
+下载了linux-3.14.1的源代码，里面的documentation有关于style的介绍。
+Tue 22 Apr 2014 01:43:39 AM CST 
+
+
+
+
+下载了glade，可以更好的理解gtk了。知道了如何用gtk的代码来生成窗口控件了。
+Sun 27 Apr 2014 12:38:40 AM CST 
+安装了两个ide工具，eclipse，anjuta
+Mon 28 Apr 2014 03:41:27 AM CST 
+
+电脑异常关机的原因可能是 显卡驱动有问题，不是官方。试着装了，一直出错。还把原来的给搞坏了。
+重新更新了系统，不过换成ubuntu的驱动就卡的要死。只能用nviida的驱动，只是加载的有些慢，启动很难。
+
+
+
+
+
+下周任务,需要写一个控制的说明书,一个tc110的实验报告.
+校准的实验方案设计.
+Sat 13 Sep 2014 12:24:42 AM CST 
+
+在ubuntu下实现51单片机的编程实现.工具,ide软件及其仿真.
+解决了程序头文件的路径问题.詳見/home/leon/MCU/mcd8051.
+Sat 13 Sep 2014 12:34:55 AM CST 
+
+
+tc110的实验报告已经完成。还有一个控制的说明书还没写。
+Mon Sep 15 18:56:13 CST 2014 
+工程师来修光机,可能需要换球管头.来后通知师兄.要保证开机时安全,注意门联锁.
+中午专家招待所订饭,20,签字,先写魏存峰,后写我自己,最近附上日期.
+
+Tue Sep 30 09:43:58 CST 2014 
+自己不小心,做了個核磁共振,沒有去指定的44所醫院.長了個教訓,算是知道了.
+拿到了檢查單,那個地方都可以做,沒必要去指定或是推薦的醫院做.
+有一件事還是沒搞明白,醫保類型應該寫成自費,還是公費.
+
+
+
+
+面试，需要对该学科相关的东西，有一个认真和清楚的了解。
+研究人的永远比研究技术的有更大的发展.
