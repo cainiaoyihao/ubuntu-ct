@@ -738,4 +738,12 @@ sudo apt-get install python-dev python-appindicator python-vte
 
 解决方案1：首先要修正fileencoding为cp936或者euc-cn（二者一样的，只不过叫法不同），注意修正的方法不是:set fileencoding=cp936，这只是将文件保存为cp936，
 正确的方法是重新以cp936的编码方式加载文件为:edit ++enc=cp936，可以简写为:e ++enc=cp936。
-Wed 26 Aug 2015 09:39:53 AM CST 
+Wed 26 Aug 2015 09:39:53 AM CST
+
+ 
+git删除本地分支下的文件
+git rm 文件 -r  -f
+git commit -m ""
+git  push
+
+//git add 可以添加新的文件到项目中，也可以实现对文件的跟踪
