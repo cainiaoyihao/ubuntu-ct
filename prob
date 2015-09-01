@@ -747,3 +747,16 @@ git commit -m ""
 git  push
 
 //git add 可以添加新的文件到项目中，也可以实现对文件的跟踪
+
+
+不知道怎么回事，u盘刚copy的东西在ubuntu里面不显示，之后重启系统，切换到windows中。
+之后再切换到ubuntu，出现了重复登陆，无法进入图形界面。
+之后搜索网上，
+1，删除下主目录下的 .Xauthority 。原因可能是该文件的执行权限是root，之后应该查看一下。ls chown
+2，/etc/profile文件乱码
+3，xorg 图形界面的问题。重装了xorg。
+
+之后注意查看log文件来查找问题所在。/var/log/目录下的log文件
+Tue Sep  1 11:02:55 CST 2015
+
+
