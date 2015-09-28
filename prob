@@ -759,4 +759,6 @@ git  push
 之后注意查看log文件来查找问题所在。/var/log/目录下的log文件
 Tue Sep  1 11:02:55 CST 2015
 
-
+convert xps to pdf document file in linux
+sudo apt-get intall libgxps-utilus
+Mon Sep 28 11:38:19 CST 2015
