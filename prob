@@ -762,3 +762,8 @@ Tue Sep  1 11:02:55 CST 2015
 convert xps to pdf document file in linux
 sudo apt-get intall libgxps-utilus
 Mon Sep 28 11:38:19 CST 2015
+ 
+add code folding feature to gedit
+download https://github.com/aeischeid/gedit-folding ,put in folder /usr/lib/gedit/plugins/
+
+
