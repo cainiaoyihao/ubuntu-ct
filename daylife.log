@@ -120,3 +120,11 @@ Tue Sep 30 09:43:58 CST 2014
 有几本书感觉应该有时间看一下:安吉拉的骨灰,布鲁克林有棵树.
 
 Fri Oct 16 15:30:47 CST 2015
+最近仔细了解了rainbow tables，下步需要去计算使用其去hack时的时间。
+sql injection的东西太多，只能往后放放。之后有时间再去了解吧。
+具体到sql injection的种类，以及使用方法。还有sqlmap的使用技巧。
+http://bluereader.org/article/59885064 这篇文章给予的启示，
+以及需要总计一下hack的总体流程。
+最后附带一个test website，http://testphp.vulnweb.com/。
+
+Mon Oct 19 23:41:33 CST 2015
