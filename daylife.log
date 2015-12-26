@@ -128,3 +128,10 @@ http://bluereader.org/article/59885064 这篇文章给予的启示，
 最后附带一个test website，http://testphp.vulnweb.com/。
 irc的使用，irssi tool。
 Mon Oct 19 23:41:33 CST 2015
+
+
+终于搞明白了什么是leading dimension以及其作用。
+详细参看what is lda
+fortran中数组的传递是使用指针，这点与c语言很像。
+lda的意义在于fortran的column major的存储方式。
+Sat Dec 26 23:09:38 CST 2015
