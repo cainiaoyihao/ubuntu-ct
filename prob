@@ -769,3 +769,9 @@ download https://github.com/aeischeid/gedit-folding ,put in folder /usr/lib/gedi
 HOW to redirect all the result of the command to the file?
 
 Tue Nov 17 22:36:07 CST 2015
+有两个问题，一个是如何在pattern匹配之前添加文件内容，具体参看
+file:///home/leon/jiji/%E5%91%BD%E4%BB%A4%20SHELL/shell-note.gk 
+，第二个问题，如何给pdf文件修改页码的label，
+具体参看file:///home/leon/tmp/add-bookmark-ch-index.gk 
+
+Mon Dec 28 00:04:24 CST 2015
