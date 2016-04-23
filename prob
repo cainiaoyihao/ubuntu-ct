@@ -778,3 +778,44 @@ Mon Dec 28 00:04:24 CST 2015
 不知道为什么,突然打印机需要密码打印.但是又总是认证失败.真是不晓得是怎么回事,之前明明好好的.
 
 Sun Apr 24 03:53:12 CST 2016
+
+之后,一直认为是window端的设置出来问题,就一直在设置上工作.再之后,怀疑是自己的samba 或是 cups 哪里出了问题.
+一直不对,一直需要密码输入.
+之后,开始琢磨samba的作用.使用
+smbclient -L //IP  
+就可以查看ip地址处的共享内容,于是把打印机的主机上的硬盘内容共享.
+使用命令查看,出现
+NTLMSSP packet check failed due to short signature (0 bytes)!
+NTLMSSP NTLM2 packet check failed due to invalid signature!
+session setup failed: NT_STATUS_ACCESS_DENIED
+上面的错误提示.google 发现,是因为更新samba后4.3.8版本后,出现的bug问题.
+再去查看apt log,发现确实在前不久
+libsmbclient:amd64 (4.1.6+dfsg-1ubuntu2.14.04.13, 4.3.8+dfsg-0ubuntu0.14.04.2)
+版本更新了samba,至此发现问题.
+需要把samba给downgrade的
+使用命令参看可用的低版本, apt-cache policy PACKAGE
+于是按照log中的逆操作,
+sudo apt-get install samba=2:4.1.6+dfsg-1ubuntu2 samba-common=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 smbclient=2:4.1.6+dfsg-1ubuntu2 python-samba=2:4.1.6+dfsg-1ubuntu2 samba-common-bin=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 samba-dsdb-modules=2:4.1.6+dfsg-1ubuntu2 samba-vfs-modules=2:4.1.6+dfsg-1ubuntu2 libsmbclient=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 libldb1=1:1.1.16-1 python-ldb=1:1.1.16-1 libwbclient0:amd64=2:4.1.6+dfsg-1ubuntu2
+
+查看 smbclient --version 版本已经是4.1.6 .
+再使用smbclient 查看共享,内容都有了,不仅包括硬盘内容,还有久违的printer.
+由于在之前的purge删除中,顺便删除了 system-setting 中的 printer-indicator,于是用localhost:631 进行printer 配置.
+尝试打印,ok.
+
+开始尝试把share文件挂载到主机上.
+mount -t  cifs //IP/LOCATION MOUNTPOINT
+报错wrong fs type, bad option, bad superblock on
+安装 apt-get install nfs-common
+执行mount命令,仍旧报错,
+google后,有人指出
+
+Make sure mount.cifs is listed into /sbin:
+ls -l /sbin/mount.cifs  文件位置
+Check to see if package cifs-utils is installed:
+dpkg -l cifs-utils      软件安装否
+If it isn't, install the cifs libraries with
+sudo apt-get install cifs-utils
+
+安装cifs-utils后,再输入密码后,硬盘就挂载到主机中.
+
+Sun Apr 24 06:32:15 CST 2016
