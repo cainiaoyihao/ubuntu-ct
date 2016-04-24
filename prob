@@ -819,3 +819,8 @@ sudo apt-get install cifs-utils
 安装cifs-utils后,再输入密码后,硬盘就挂载到主机中.
 
 Sun Apr 24 06:32:15 CST 2016
+
+尝试了一下把window共享的文件权限设为 everyone 和 lcc ,在linux 端是不需要密码就可以正常挂载的.
+但是一旦把everyone的权限拿掉,就再也无法访问了.
+留下一个坑,以后再去填.
+Sun Apr 24 20:42:15 CST 2016
