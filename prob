@@ -793,9 +793,9 @@ session setup failed: NT_STATUS_ACCESS_DENIED
 libsmbclient:amd64 (4.1.6+dfsg-1ubuntu2.14.04.13, 4.3.8+dfsg-0ubuntu0.14.04.2)
 版本更新了samba,至此发现问题.
 需要把samba给downgrade的
-使用命令参看可用的低版本, apt-cache policy PACKAGE
+使用命令参看可用的低版本, apt-cache policy PACKAGE(该命令show库中所有可用的软件版本)
 于是按照log中的逆操作,
-sudo apt-get install samba=2:4.1.6+dfsg-1ubuntu2 samba-common=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 smbclient=2:4.1.6+dfsg-1ubuntu2 python-samba=2:4.1.6+dfsg-1ubuntu2 samba-common-bin=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 samba-dsdb-modules=2:4.1.6+dfsg-1ubuntu2 samba-vfs-modules=2:4.1.6+dfsg-1ubuntu2 libsmbclient=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 libldb1=1:1.1.16-1 python-ldb=1:1.1.16-1 libwbclient0:amd64=2:4.1.6+dfsg-1ubuntu2
+sudo apt-get install samba=2:4.1.6+dfsg-1ubuntu2 samba-common=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 smbclient=2:4.1.6+dfsg-1ubuntu2 python-samba=2:4.1.6+dfsg-1ubuntu2 samba-common-bin=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 samba-dsdb-modules=2:4.1.6+dfsg-1ubuntu2 samba-vfs-modules=2:4.1.6+dfmingsg-1ubuntu2 libsmbclient=2:4.1.6+dfsg-1ubuntu2 samba-libs=2:4.1.6+dfsg-1ubuntu2 libldb1=1:1.1.16-1 python-ldb=1:1.1.16-1 libwbclient0:amd64=2:4.1.6+dfsg-1ubuntu2
 
 查看 smbclient --version 版本已经是4.1.6 .
 再使用smbclient 查看共享,内容都有了,不仅包括硬盘内容,还有久违的printer.
