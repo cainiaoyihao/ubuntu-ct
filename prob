@@ -55,7 +55,7 @@ tex又可以执行了，感觉莫名其妙。texmaker 设置内容 //latex   "/u
 23/09/2013 01:10:40 
 
 下载的视频用vlc和media播放黑屏，之后用了sm，ok。sm会自动加载中文字幕，而不会出现乱码，超级强大。
-下载了ubuntu-restriced-extras支持微软字体和mp3的解码，视频解码插件。
+下载了ubuntu-restricted-extras支持微软字体和mp3的解码，视频解码插件。
 2013-09-24 02:29:48 
 
 
@@ -522,6 +522,7 @@ chmod 權限中的s 和 x 之間的差距，加上s之後權限變大了嗎？
 1。下載支持32位的matlab版本
 2。安裝 安裝文件裏面的要求即可
 3。安裝完成後啓動matlab，就會提示驗證文件
+在验证之前，需要先把 so 破解文件cp 到相应的文件夹。
 4。提示去燒。so文件，去/lib/i386-linux-gnu/裏面找，建立軟連接。sudo ln -s /lib/i386-linux-gnu/xxxx。so /lib/libc.so.6
 (如果用連接文件,會報錯,找到源文件後字節複製,建立軟連接用絕對路徑,否則連接文件可能無法使用)
 5。給matlab建立軟連接，使之可以在terminal下直接啓動。sudo ln -s /xxxxxx/bin/matlab /usr/bin/matlab
@@ -724,10 +725,27 @@ Tue 21 Jul 2015 11:38:35 AM CST
 
 
 goagent安装托盘
-sudo apt-get install python-dev python-appindicator python-vte
+sudo apt-get install python-dev python-appindicator python-vte python-openssl
 火狐浏览器证书需要导入证书：在 授权中心 导入 GoAgent/local 目录下的 CA.crt 证书 导入到authorities中
 	不要导入到server中去，无用。
 开始更新是需要安装证书到目录下，需要管理员权限，也就是说需要sudo一下。
+ 
+启动后会自动建立桌面图标，如果没有，可以尝试自己建立。
+类似与matlab建立图标的方法，（不需要建立软链接）
+文本内容如下：
+
+[Desktop Entry]
+Type=Application
+Name=GoAgent
+Comment=GoAgent Start
+Categories=Network;Proxy;
+Exec=python [GoAgent目录]/local/goagent-gtk.py
+Icon=[GoAgent目录]/local/goagent-logo.png
+Terminal=true
+StartupNotify=true
+
+也可以让goagent不再终端显示，只需要把 Terminal=true 改为 Terminal=false ，即可。
+最近注意一下图片的权限，可能出现没有图标的情况。
 
 
 显示中文乱码
@@ -832,3 +850,15 @@ ubuntu 14.04 不在提供更新服务,于是决定把系统update 到 16.04. 担
 之后具体观察更新到16.04后,新旧系统之间的差异.
 
 Thu Aug 11 15:14:33 CST 2016
+
+安装sogou 输入法，要首先安装 fcitx ，之后需要添加中文输入法，这样安装 sogou 软件包才有用。
+
+对ubuntu 14.04 升级到 16.04 ，结果是开机没有反应。之后安装其他的版本，一直报错是 grub 错误。
+可能是 uefi 启动模式的问题，也可能是其他的一些问题。
+在安装的过程中，先把bios 的启动 模式改为 legancy ，之后安装是不要指定安装u盘的模式是legancy 还是 uefi。
+选择盘符时，最好把盘格式化到，而且单独拿出一个盘来做为 home 盘，这样在后来重做时系统，home 中的内容就可可幸免遇难。
+安装好系统后，可能需要重新在window 中用 easybcd 来更新 新的 ubuntu 启动项，切记。如果是开机后，根本就没有任何启动项，
+说明 window 中的mbr 启动被抹掉了，可以使用大白菜来重写mbr ，恢复 window 后，再来用其恢复ubuntu。
+需要做一个脚本，来自动对新系统进行更新。
+Fri Aug 12 04:38:42 EDT 2016
+
