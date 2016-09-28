@@ -867,3 +867,6 @@ Fri Aug 12 04:38:42 EDT 2016
 现在需要把该命令 给进入开机执行,关机后对log文件进行压缩.
 问题,如何加入开机执行,如何使用sudo ,如何选择 网络端口.
 Thu Sep 22 09:47:36 CST 2016
+早上来,电脑是关机的.查找关机记录,寻找关机原因.
+电脑非正常关机 (unexpected shutdown),记录查询使用命令 sudo grep -E -i -r 'error|warning|panic' /var/log/
+Wed Sep 28 09:24:07 CST 2016
