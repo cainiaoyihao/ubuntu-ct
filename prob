@@ -531,7 +531,7 @@ chmod 權限中的s 和 x 之間的差距，加上s之後權限變大了嗎？
 [Desktop Entry]
 Type=Application
 Icon=/usr/share/icons/matlab.png
-Name=MATLAB
+Name=MATLABgo
 Comment=Start MATLAB - The Language of Technical Computing
 Exec=matlab -desktop
 Categories=Development;
@@ -732,6 +732,7 @@ sudo apt-get install python-dev python-appindicator python-vte python-openssl
  
 启动后会自动建立桌面图标，如果没有，可以尝试自己建立。
 类似与matlab建立图标的方法，（不需要建立软链接）
+建立圖標，图标（png）复制到   "/usr/share/icons"，在 "/usr/share/applications" 下建立文档 goagent.desktop， 内容如下：
 文本内容如下：
 
 [Desktop Entry]
@@ -870,3 +871,17 @@ Thu Sep 22 09:47:36 CST 2016
 早上来,电脑是关机的.查找关机记录,寻找关机原因.
 电脑非正常关机 (unexpected shutdown),记录查询使用命令 sudo grep -E -i -r 'error|warning|panic' /var/log/
 Wed Sep 28 09:24:07 CST 2016
+
+使用文献管理工具 zotero ,由于软件给的空间太小,需要把storage文件夹中的内容给同步到 别的地方.
+使用 folder link.
+ln的链接又分软链接和硬链接两种，软链接就是ln –s 源文件 目标文件，
+它只会在你选定的位置上生成一个文件的镜像，不会占用磁盘空间，
+当源文件被删除之后，软链接的文件会打开不了.
+硬链接 ln 源文件 目标文件，没有参数-s， 它会在你选定的位置上生成一个和源文件大小相同的文件，
+无论是软链接还是硬链接，文件都保持同步变化。
+
+链接使用时,源文件和链接文件是同步变化的,也就是说我修改了 链接文件,同事源文件也发生变化.
+而对于文件夹的链接,如果我在链接文件夹中新建了一个文件,那么源文件夹也会同步增加,删除文件也是一样的.
+
+Sun Jan  1 02:10:32 CST 2017
+
