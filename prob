@@ -885,3 +885,9 @@ ln的链接又分软链接和硬链接两种，软链接就是ln –s 源文件 
 
 Sun Jan  1 02:10:32 CST 2017
 
+add new search engine to firefox
+添加新的搜索引擎给firefox,这样vimperator就有了新的 o open tab 选择项.
+
+需要了解 tmux powerline airline vim zsh 的配置及意义.
+
+Mon Jan  2 23:17:54 CST 2017
