@@ -850,6 +850,7 @@ ubuntu 14.04 不在提供更新服务,于是决定把系统update 到 16.04. 担
 具体的命令 rsync -zvur source-file  dec-file
 之后具体观察更新到16.04后,新旧系统之间的差异.
 
+rsync -zvur Know/ /media/leon/NTFS/know/ 是把Know文件夹下的所有内容复制到下一个目录下,而不会创建一个新的Knowe目录.
 Thu Aug 11 15:14:33 CST 2016
 
 安装sogou 输入法，要首先安装 fcitx ，之后需要添加中文输入法，这样安装 sogou 软件包才有用。
