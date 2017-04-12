@@ -892,3 +892,11 @@ add new search engine to firefox
 需要了解 tmux powerline airline vim zsh 的配置及意义.
 
 Mon Jan  2 23:17:54 CST 2017
+今天遇到一个很有意思的问题,对在window下copy的文件放在ubuntu中,使用grep去操作,竟然没有作用.
+grep '^error' test | grep -oE '[0-9]*\.[0-9]*$' | sed -n 'p;n' 
+找出error开头的行,取出行中以数字结尾的数字,将结构的偶数行输出.
+问题是在window中行尾 回车换行符0a0d,而在ubuntu中是以回车符 0a,于是在ubuntu中对于行尾的处理 $也就有问题了.
+
+
+
+
