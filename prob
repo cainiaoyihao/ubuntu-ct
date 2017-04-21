@@ -897,6 +897,13 @@ grep '^error' test | grep -oE '[0-9]*\.[0-9]*$' | sed -n 'p;n'
 找出error开头的行,取出行中以数字结尾的数字,将结构的偶数行输出.
 问题是在window中行尾 回车换行符0a0d,而在ubuntu中是以回车符 0a,于是在ubuntu中对于行尾的处理 $也就有问题了.
 
+ubuntu 中有两个基于vi的窗口式软件 vim和gvim,gvim是纯粹的gui,但是太丑.
+可以使用vim,vim还是借助于terminal的,不是纯的.
+使用tabe来打开文件,使用set autochdir来设置当前路径.
+使用ls来显示buffer,使用 bn bp来切换.:b number 来按照数字切换.
+
+Fri Apr 21 15:48:42 CST 2017
+
 
 
 
