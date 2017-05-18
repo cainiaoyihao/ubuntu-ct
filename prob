@@ -903,7 +903,13 @@ ubuntu 中有两个基于vi的窗口式软件 vim和gvim,gvim是纯粹的gui,但
 使用ls来显示buffer,使用 bn bp来切换.:b number 来按照数字切换.
 
 Fri Apr 21 15:48:42 CST 2017
+可以使用工具进行word 拼写测试.aspell -c -t rsitemplate.tex.
+对于语法 grammer错误,使用languagetool进行检查.
+对libreoffice 安装languagetool插件,(需要安装 06 可以使用工具进行word 拼写测试.aspell -c -t rsitemplate.tex.¬
+907 对于语法 grammer错误,使用languagetool进行检查.¬
+908 对libreoffice 安装languagetool插件,(需要安装)¬ sudo apt install libreoffice-java-common),关闭所有office文件,安装插件,即可.
 
+Thu May 18 10:57:15 CST 2017
 
 
 
