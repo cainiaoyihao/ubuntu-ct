@@ -912,4 +912,10 @@ Fri Apr 21 15:48:42 CST 2017
 Thu May 18 10:57:15 CST 2017
 
 
+pdf 与 djvu 文件之间的转换工具.
+有一个djvu 文件 奇数偶数页是交错的,132547698
+首先使用 ddjvu 把 djvu 转换成pdf文件,之后使用pdftk infile.pdf shuffle even odd output outfile.pdf 把文件中奇偶页交换,
+剩下的工作就是把pdf文件用 pdf2djvu再转换回去.
+
+Fri May 26 16:01:16 CST 2017
 
