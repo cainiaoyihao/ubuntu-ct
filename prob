@@ -923,3 +923,12 @@ Fri May 26 16:01:16 CST 2017
 具体细节见  https://ubuntuforums.org/showthread.php?t=1778049
 
 Wed May 31 16:02:54 CST 2017
+
+使用pip安装pyopencl,结果出现了fatal error: CL/cl.h: No such file or directory,
+也就是编译过程找不到头文件.
+于是试着将locate  CL/cl.h的结果 export PATH= 输出,结果bash 报错.
+https://stackoverflow.com/questions/18428374/commands-not-found-on-zsh
+原来是添加路径需要在以前的基础上,否则会出现冲突.
+但是成功添加后,依旧是报错,这才明白应该是在pip命令中设置路径.
+https://stackoverflow.com/questions/19071708/pip-install-customized-include-path
+之后出现 /usr/bin/ld: cannot find -lOpenCL,应该是链接问题,也把路径添加到pip命令中去,结果就好了.
