@@ -932,3 +932,13 @@ https://stackoverflow.com/questions/18428374/commands-not-found-on-zsh
 但是成功添加后,依旧是报错,这才明白应该是在pip命令中设置路径.
 https://stackoverflow.com/questions/19071708/pip-install-customized-include-path
 之后出现 /usr/bin/ld: cannot find -lOpenCL,应该是链接问题,也把路径添加到pip命令中去,结果就好了.
+
+安装pdfstudio包，进行一些修饰。
+参看 http://aandds.com/blog/crack-pdfstudio.html 
+使用jar，http://jd.benow.ca/ 。安装后，chmod +x ，可以直接运行，加载 jar包即可。
+修改 java byte code, 使用 set.ee/jbe/ ,下载后执行 java -cp bin ee.ioc.cs.jbe.browser.BrowserApplication 就可以打开class文件。
+对修改完的class文件需要重新打包，  zip -r pdfstudio.jar *     。
+有时候，需要搜索字符串，但是对jar包使用grep是无效的，可以使用 find libdir -name "*.jar" -exec zipgrep "BEGIN REQUEST" '{}' \;  来搜索。
+https://stackoverflow.com/questions/10331025/how-to-search-for-a-string-in-jar-files
+https://superuser.com/questions/964738/java-error-when-running-a-sh-file-for-java-bytecode-editor-mac
+Mon Nov 27 15:55:38 CST 2017
