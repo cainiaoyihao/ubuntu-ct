@@ -942,3 +942,22 @@ https://stackoverflow.com/questions/19071708/pip-install-customized-include-path
 https://stackoverflow.com/questions/10331025/how-to-search-for-a-string-in-jar-files
 https://superuser.com/questions/964738/java-error-when-running-a-sh-file-for-java-bytecode-editor-mac
 Mon Nov 27 15:55:38 CST 2017
+
+如何查看系统是否正常安装了显卡驱动?
+可以使用命令glxinfo来查看, glxinfo | grep rendering 
+需要安装 apt install mesa-utils 才能使用 glxinfo, 同时这个包还包含其他的命令 glxgears.
+glxgears 用来查看3d加速是否正常工作.
+https://wiki.debian.org/Mesa
+
+使用远程登录服务器,ssh -X -Y ,开启Gate 可视化,开始报错,无法使用,报错如下
+libGL error: No matching fbConfigs or visuals found
+libGL error: failed to load driver: swrast
+使用glxgears没有齿轮出现,查看更加具体的信息,可以在使用 glxgears 前, 使用 export LIBGL_DEBUG=verbose 
+来显示更多的信息.后来发现是需要在本地配置,添加 +iglx
+https://askubuntu.com/questions/745135/how-to-enable-indirect-glx-contexts-iglx-in-ubuntu-14-04-lts-with-nvidia-gfx
+之后齿轮正常出现,只是没有转动,而且上面的错误仍旧出现,不过已经可以可视化了.
+错误的出现在上面的网址里面有提及到,主要使用了direct rendering, 修改为 indirect rendering,
+就不会在报错了, export LIBGL_ALWAYS_INDIRECT=1 
+至此, Gate 可视化不再报错误,可以正常使用了.
+
+Wed Dec 13 10:30:30 CST 2017
