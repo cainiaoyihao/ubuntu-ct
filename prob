@@ -961,3 +961,26 @@ https://askubuntu.com/questions/745135/how-to-enable-indirect-glx-contexts-iglx-
 至此, Gate 可视化不再报错误,可以正常使用了.
 
 Wed Dec 13 10:30:30 CST 2017
+
+部署xx-net
+随着goagent 死掉, xx-net 随即开发出来, 在原来 goagent 的基础山增加了很多新的功能,
+大大的简化了代理的配置.
+使用xx-net可以使用公用appid,但是由于大家都在用,导致经常出现中断.
+可以自己申请google 的 appid 来进行配置. appid 的环境和之前发生了很大的变化,
+现在一个账户只能申请12个project,申请google 账号的操作见
+https://github.com/Alvin9999/new-pac/wiki/%E8%87%AA%E5%BB%BAappid%E5%92%8C%E6%90%9C%E8%B0%B7%E6%AD%8Cip%E6%95%99%E7%A8%8B%EF%BC%88GoAgent%E7%89%88%E5%92%8CGoProxy%E7%89%88%EF%BC%89
+可以使用textnow.com 来免费获取一个手机号,或是使用淘宝.
+至于之后,appid 的配置参看
+https://github.com/XX-net/XX-Net/wiki/how-to-create-my-appids
+首先创建project,之后再创建应用,选择语言和位置即可.
+这样就基本完成了google 的appid 工作.
+
+之后就是xx-net的配置问题,和goagent一样,首先需要安装一些包.
+除此之前,libnss3-tools需要安装来自动导入证书.
+首先, sudo ./start .必须使用sudo,否则证书无法导入.
+之后,打开127.0.0.1:8085 来查看状态,可以选择强制 ipv6, 在扫描ip一段时间后,
+可以把自动扫描ip给关掉.文件夹内的data会变成root的,普通用户无法使用.
+sudo的使用导致无法正常自动生成桌面快捷方式,手动生动的快捷方式也是无法使用的,
+将data 的用户改为普通用户,快捷方式就可以使用了.
+
+Thu Dec 28 22:20:37 CST 2017
