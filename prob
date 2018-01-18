@@ -984,3 +984,26 @@ sudo的使用导致无法正常自动生成桌面快捷方式,手动生动的快
 将data 的用户改为普通用户,快捷方式就可以使用了.
 
 Thu Dec 28 22:20:37 CST 2017
+
+下载 youtube 上的视频, 在 chrome 上的插件无法下载高质量的视频.
+使用 网站 下载视频, 但是视频和音频是分开的,而且有时下载不了.
+于是使用下载工具 youtube-dl , 按照 https://github.com/rg3/youtube-dl 
+上的指示进行安装, 可以使用 pip install 来进行安装.
+安装之后,在 zsh 里面使用 ,zsh 不行, 需要转到 bash ,
+但是 使用代理 proxy 的时候,出现 ssl error.
+但是可以使用   --no-check-certificate  .
+例子:
+youtube-dl --proxy 127.0.0.1:8087 --no-check-certificate https://www.youtube.com/watch?v=EotbKqZmBuY
+Thu Jan 18 23:42:14 CST 2018
+
+使用 oh-my-zsh , 他有不同的插件 plugin 和 主题 theme, 替换主题和插件,
+需要对  ~/.zshrc 里面进行修改, https://www.jianshu.com/p/9189eac3e52d   .
+使用 里面的插件 vi-mode, 但是有些主题里面没有定义跟vi相关的内容,于是 没有表示.
+https://github.com/robbyrussell/oh-my-zsh/issues/5118
+于是 参考
+https://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
+https://dougblack.io/words/zsh-vi-mode.html
+里面的内容加入到 ~/.zshrc 里面. https://github.com/ardagnir/athame
+里面的内容更好看,但是不是针对 oh-my-zsh.
+Thu Jan 18 23:53:52 CST 2018
+
