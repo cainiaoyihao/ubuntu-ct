@@ -1007,3 +1007,7 @@ https://dougblack.io/words/zsh-vi-mode.html
 里面的内容更好看,但是不是针对 oh-my-zsh.
 Thu Jan 18 23:53:52 CST 2018
 
+之前安装了youtube-dl, 但是由于其arguments 太多, 于是可以把 arguments 放在 config 文件中,
+在手册里面建议 放在  ~/.config/youtube-dl/config , 路径不存在的话,直接新建即可.
+之后就可以直接使用 youtube-dl  https          来进行下载.确实方便了很多.
+Fri Jan 19 17:26:19 CST 2018
