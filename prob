@@ -1025,3 +1025,6 @@ help termcap-cursor-colo
 https://ttssh2.osdn.jp/manual/en/usage/tips/vim.html
 http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
 Fri Jan 19 23:36:40 CST 2018
+\e <Esc> magic 匹配.
+查看手册
+help pattern-overview
