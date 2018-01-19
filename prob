@@ -1011,3 +1011,17 @@ Thu Jan 18 23:53:52 CST 2018
 在手册里面建议 放在  ~/.config/youtube-dl/config , 路径不存在的话,直接新建即可.
 之后就可以直接使用 youtube-dl  https          来进行下载.确实方便了很多.
 Fri Jan 19 17:26:19 CST 2018
+
+更改图标 cursor 在 vi 的不同模式下的显示,例如想要其表示为一个 block.
+设置的具体方式是跟vi 处于不同的terminal 有关, 通过 set term=
+可以来查看具体是属于那种terminal.
+针对 xterm, 可以通过
+let &t_SI .= "\e[5 q"
+let &t_SR .= "\e[3 q"
+let &t_EI .= "\e[1 q"
+来进行设置,至于 t_SI 具体的意思,可以 查看
+help termcap-cursor-colo
+具体的设置内容查看
+https://ttssh2.osdn.jp/manual/en/usage/tips/vim.html
+http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+Fri Jan 19 23:36:40 CST 2018
