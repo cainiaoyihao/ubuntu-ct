@@ -1028,3 +1028,13 @@ Fri Jan 19 23:36:40 CST 2018
 \e <Esc> magic 匹配.
 查看手册
 help pattern-overview
+
+如果需要批量修改文件编码，使用iconv需要生成一个新的文件，vi是在源文件上修改文件编码。
+不过一个一个修改文件，确实很麻烦。可以使用bash命令来批量修改文件。
+for  file  in  *.c; do
+	vim +"set nobomb | e ++enc=cp936 | set fenc=utf8 | x" "$file"
+done
+这里使用的vim命令在不打开文件的前提下，对文件进行批量修改。
+如果直接修改文件夹下的所有文件，vim是会报错的。
+
+Wed Apr 11 15:30:02 CST 2018
