@@ -1038,3 +1038,15 @@ done
 如果直接修改文件夹下的所有文件，vim是会报错的。
 
 Wed Apr 11 15:30:02 CST 2018
+
+文件里面的空格有很多种，在vim中显示空格的类型就给出了好几种。
+主要有　trail space, white space, non-break space.
+trail space指的是在这种空格后面没有其他的字符，
+而white space则是行内嵌入的空格。
+https://stackoverflow.com/questions/1675688/make-vim-show-all-white-spaces-as-a-character
+vim中空格字符串的设置可以查看文档
+	help listchars
+里面有具体的设置方式，需要首先设置trail space，之后才能是white space.
+如果反过来，trail space会覆盖到之前的设置，两种空格的显示是一样的。
+
+Thu Apr 19 21:29:00 CST 2018
