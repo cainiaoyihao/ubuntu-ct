@@ -1084,3 +1084,12 @@ https://www.haskell.org/cabal/
 export cabal_helper_libexecdir=/usr/lib/cabal-helper-wrapper
 即可，把该命令加入 .profile , .bashrc 无效，目前不知道如何操作。
 2019年 03月 01日 星期五 09:47:07 CST
+
+#git
+如果需要本地更新代码，首先会和远程 master 分支连接更新到最新版本，之后在此基础上进行
+更新。如果本地已经有代码，则可以使用
+git pull origion master
+如果本地没有代码，使用
+git clone 代码后，可能需要 git init 更新确认， 之后就可以更新代码，之后再 push
+此时需要 config 本地用户的身份，最后就可以 push 到远程，也就完成了此次的代码更新。
+2019年 03月 01日 星期五 10:17:26 CST
