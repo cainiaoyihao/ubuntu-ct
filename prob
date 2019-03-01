@@ -1056,3 +1056,31 @@ ape文件中的曲目信息是包含在 cue 文件中的，使用 shntool 分割
 
 2018年 09月 16日 星期日 15:44:14 CST
 
+#haskell
+haskell 编译器
+方法1：https://www.haskell.org/downloads/linux
+这种方法的ghci 是最新的。
+之后需要把其环境加入系统环境，或者使用ln -s创建软链接。
+
+方法2：使用 ubuntu 官方源直接下载
+sudo apt install ghc
+此种方法会默认下载一些相关的软件，包括 cabal-hepler-warpper
+
+haskell vim 补全插件
+这里使用了 deoplete 这款插件，按github 上的要求，需要配合安装一些其他的插件
+https://github.com/Shougo/deoplete.nvim
+同时需要安装 python 包
+sudo apt install python3-pip
+sudo pip3 install pynvim
+这样就可以了
+
+如果使用第一种方法安装的 ghci 还需要安装 cabal-helper ,
+使用官方源是可以直接安装的。
+（安装 cabal-install 后可以使用 cabal 安装 ）
+https://www.haskell.org/cabal/
+
+最后 ghc-mod debug 时候，会提示找不到 cabal-helper-wrapper 的路径，
+这是在 终端里面 输入 
+export cabal_helper_libexecdir=/usr/lib/cabal-helper-wrapper
+即可，把该命令加入 .profile , .bashrc 无效，目前不知道如何操作。
+2019年 03月 01日 星期五 09:47:07 CST
