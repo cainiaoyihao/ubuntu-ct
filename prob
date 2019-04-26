@@ -1086,10 +1086,35 @@ export cabal_helper_libexecdir=/usr/lib/cabal-helper-wrapper
 2019年 03月 01日 星期五 09:47:07 CST
 
 #git
-如果需要本地更新代码，首先会和远程 master 分支连接更新到最新版本，之后在此基础上进行
-更新。如果本地已经有代码，则可以使用
+如果需要本地更新代码，首先会和远程 master 分支连接更新到最新版本，
+之后在此基础上进行更新。
+
+如果本地已经有代码，则可以使用
 git pull origion master
-如果本地没有代码，使用
-git clone 代码后，可能需要 git init 更新确认， 之后就可以更新代码，之后再 push
-此时需要 config 本地用户的身份，最后就可以 push 到远程，也就完成了此次的代码更新。
+
+如果本地没有代码，使用git clone 代码后，可能需要 git init 更新确认， 
+之后就可以更新代码，之后再 push, 此时需要 config 本地用户的身份，
+最后就可以 push 到远程，也就完成了此次的代码更新。
 2019年 03月 01日 星期五 10:17:26 CST
+
+笔记本电脑的 Fn 功能键
+Fn 并不是 F1-12 的总称，而是键盘上一个单独的按键，位于键盘上最后一行。
+Esc 键右下角有一个 Fn lock 的标志。
+
+在 BIOS 里面可以设置如何切换 F1-12 的系统设置，比如 笔记本自带的 F2 音量调节
+和系统的 重命名 功能。
+
+有两种切换模式：
+1, Fn + Esc 可以用来切换 F1-12 在两种功能之间切换，切换后，F1-12 直接就可以实现
+这里的 Fn + Esc 就像是 CapsLock 在大小写之间切换。
+
+2, Fn + F1-12 来实现切换，F1-12 的默认功能没有改变，这里的 Fn 就像是 Shift 键用来输入大写。
+
+在DELL 的 BIOS 上，键盘选项对应上面两种功能： 
+
+FnLock 指的是 功能切换, Fn + Esc 直接在 原始 和 secondary 切换。
+
+Lock mode diable / standard  默认是原始， 切换使用Fn + F1-12
+Lock mode Enalbe / secondary 默认是 secondary，切换使用 Fn + F1-12
+2019年 04月 26日 星期五 10:57:44 CST
+
