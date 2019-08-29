@@ -1118,3 +1118,8 @@ Lock mode diable / standard  默认是原始， 切换使用Fn + F1-12
 Lock mode Enalbe / secondary 默认是 secondary，切换使用 Fn + F1-12
 2019年 04月 26日 星期五 10:57:44 CST
 
+
+smb config
+anonymous 模式和 registered 模式
+registered 模式用户的密码不是默认系统登录密码，需要重新设置 专用于 smb 登录的密码。
+sudo smbpasswd -a myUser1
